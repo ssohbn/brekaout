@@ -15,7 +15,6 @@ public class CollidingObject implements IDrawable, ICollidable {
     this.height = height;
   }
 
-
   @Override
   public void draw(PApplet sketch) {
     sketch.pushMatrix();
@@ -27,7 +26,6 @@ public class CollidingObject implements IDrawable, ICollidable {
   @Override
   public boolean isColliding(CollidingObject collidable) {
     // this part is a pain :(
-    
     int left = this.x;
     int right = this.x + this.width;
     int top = this.y;
@@ -38,25 +36,27 @@ public class CollidingObject implements IDrawable, ICollidable {
       pointInCollidingObject(left, top, collidable) ||
       pointInCollidingObject(right, top, collidable) ||
       pointInCollidingObject(left, bottom, collidable) ||
-      pointInCollidingObject(right, bottom, collidable)
-    ) return true;
-    else return false;
+      pointInCollidingObject(right, bottom, collidable) ) {
+      onCollide(collidable);
+      return true;
+    } else return false;
   }
 
   private boolean pointInCollidingObject(int x, int y, CollidingObject collidable) {
-
     int l = collidable.x;
     int r = collidable.x + collidable.width;
     int t = collidable.y;
     int b = collidable.y + collidable.height;
 
-    boolean colliding = false;
-    
     if( x <= r && x >= l &&
-      y <= b && y >= t  )
-  	colliding = true;
-
-    return colliding;
+      y <= b && y >= t 
+    ) return true;
+    else return false;
+  }
+  
+  @Override
+  public void onCollide(CollidingObject object) {
+    // idc
   }
 
   public void setX(int x) {

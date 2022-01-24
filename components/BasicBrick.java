@@ -1,5 +1,4 @@
 package components;
-import interfaces.ICollidable;
 import processing.core.PApplet;
 
 public class BasicBrick extends CollidingObject {
@@ -26,5 +25,12 @@ public class BasicBrick extends CollidingObject {
   @Override
   public boolean isColliding(CollidingObject collidable) {
     return super.isColliding(collidable);
+  }
+
+  @Override
+  public void onCollide(CollidingObject collidable) {
+    super.onCollide(collidable);
+    // tbh this doesnt really matter 
+    // for non playable things unless
   }
 }
