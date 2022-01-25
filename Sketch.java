@@ -16,7 +16,7 @@ public class Sketch extends PApplet {
     
     brick = new BasicBrick(50, 50, 50, 50);
     brick2 = new BasicBrick(50, 50, 50, 50);
-    player = new PlayerBrick(300, 50, 50, 50);
+    player = PlayerBrick.getInstance();
   }
 
   public void draw() {
