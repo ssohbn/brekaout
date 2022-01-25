@@ -18,4 +18,11 @@ public class TheColorfulFellow {
       INSTANCE = new TheColorfulFellow();
     return INSTANCE;
   }
+
+  public void registerColor() {
+    /**
+      * check file for color or something idk 
+      * i had an idea and then forgort
+      */
+  }
 }
