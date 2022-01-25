@@ -26,9 +26,21 @@ public class PlayerBrick extends CollidingObject {
   }
 
   @Override
+  public void setX(int x) {
+    this.x = x;
+  }
+
+  @Override
+  public void setY(int y) {
+    this.y = y;
+  }
+
+  @Override
   public void draw(PApplet sketch) {
     sketch.pushMatrix();
-    sketch.fill(255, 0, 0);
+
+    sketch.fill(0, 0, 255);
+    
     sketch.rect(this.x, this.y, this.width, this.height);
     sketch.popMatrix();
   }
