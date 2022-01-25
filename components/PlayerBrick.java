@@ -2,21 +2,34 @@ package components;
 import processing.core.PApplet;
 
 public class PlayerBrick extends CollidingObject {
-  private int x=300, y, width, height;
-  public PlayerBrick(int x, int y, int width, int height) {
-    super(x, y, width, height);
-  }
+  private static PlayerBrick INSTANCE = null;
+  // singleton because I only want one player
 
-  // TODO: implement colliding object methods
+  private int x, y, width, height;
+  private PlayerBrick(int x, int y, int width, int height) {
+    super(x, y, width, height); 
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+  }
 
   @Override
   public void onCollide(CollidingObject obj) {
     super.onCollide(obj);
   }  
   
-  @Override
-  public void draw(PApplet sketch) {
-    super.draw(sketch);
+  public static PlayerBrick getInstance() {
+    // locks to a single playerbrick
+    if ( INSTANCE != null ) return INSTANCE;
+    else return new PlayerBrick(300, 50, 50, 50);
   }
 
+  @Override
+  public void draw(PApplet sketch) {
+    sketch.pushMatrix();
+    sketch.fill(255, 0, 0);
+    sketch.rect(this.x, this.y, this.width, this.height);
+    sketch.popMatrix();
+  }
 }

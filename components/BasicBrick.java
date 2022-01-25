@@ -9,6 +9,7 @@ public class BasicBrick extends CollidingObject {
 
   @Override
   public void draw(PApplet sketch) {
+    sketch.fill(255);
     super.draw(sketch);
   }
 
