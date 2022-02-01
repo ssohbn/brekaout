@@ -17,7 +17,7 @@ public class BrickManager {
   }
 
   public void add(BasicBrick brick) {
-    thisbricks.add(brick);
+    this.bricks.add(brick);
   }
 
   public static Iterator getIterator() {

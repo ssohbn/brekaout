@@ -5,6 +5,7 @@ public class BasicBrick extends CollidingObject {
   
   public BasicBrick(int x, int y, int width, int height) {
     super(x, y, width, height);
+    BrickManager.getInstance().add(this);
   }
 
   @Override
@@ -31,7 +32,6 @@ public class BasicBrick extends CollidingObject {
   @Override
   public void onCollide(CollidingObject collidable) {
     super.onCollide(collidable);
-    // tbh this doesnt really matter 
-    // for non playable things unless
+    // do this later or something idk
   }
 }

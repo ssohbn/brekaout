@@ -1,5 +1,6 @@
 import processing.core.PApplet;
 import components.*;
+import logic.*;
 
 public class Sketch extends PApplet {
 
@@ -14,16 +15,25 @@ public class Sketch extends PApplet {
   public void setup() {
     background(0);
     
+    Iterator brickerator; // import this  later
     brick = new BasicBrick(50, 50, 50, 50);
     brick2 = new BasicBrick(50, 50, 50, 50);
+    
     player = PlayerBrick.getInstance();
+    
+    
+    GameThread gamethread = GameThread.getInstance();
+    // le create game thread
   }
 
   public void draw() {
     background(0);
     fill(0);
-    brick.draw(this);
-    brick2.draw(this);
+    
+    while ( BrickManager.getInstance()
+      .getIterator().hasNext() ) {
+          // draw brickys
+      }  
     player.draw(this);
 
   }
