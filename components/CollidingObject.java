@@ -1,10 +1,8 @@
 package components;
 
-import interfaces.ICollidable;
-import interfaces.IDrawable;
 import processing.core.PApplet;
 
-public class CollidingObject implements IDrawable, ICollidable {
+public class CollidingObject {
 
   private int x, y, width, height;
 
@@ -15,7 +13,6 @@ public class CollidingObject implements IDrawable, ICollidable {
     this.height = height;
   }
 
-  @Override
   public void draw(PApplet sketch) {
     sketch.pushMatrix();
     sketch.rect(this.x, this.y, width, height);
@@ -23,7 +20,6 @@ public class CollidingObject implements IDrawable, ICollidable {
 
   }
 
-  @Override
   public boolean isColliding(CollidingObject collidable) {
     // this part is a pain :(
     int left = this.x;
@@ -54,7 +50,6 @@ public class CollidingObject implements IDrawable, ICollidable {
     else return false;
   }
   
-  @Override
   public void onCollide(CollidingObject object) {
     // idc
   }
