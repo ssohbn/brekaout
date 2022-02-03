@@ -7,7 +7,7 @@ public class BrickManager {
   private static ArrayList<BasicBrick> bricks;
   
   private BrickManager() {
-  this.bricks = new ArrayList<BasicBrick>();  
+  bricks = new ArrayList<BasicBrick>();  
   }
 
   public static BrickManager getInstance() {
@@ -17,10 +17,10 @@ public class BrickManager {
   }
 
   public void add(BasicBrick brick) {
-    this.bricks.add(brick);
+    bricks.add(brick);
   }
 
-  public static Iterator getIterator() {
+  public static Iterator<BasicBrick> getIterator() {
     return bricks.iterator();
   }
 }
