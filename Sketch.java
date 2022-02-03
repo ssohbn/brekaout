@@ -18,27 +18,29 @@ public class Sketch extends PApplet {
   public void setup() {
     background(0);
     
-     // import this  later
-    brick = new BasicBrick(50, 50, 50, 50);
-    brick2 = new BasicBrick(50, 50, 50, 50);
     
     player = PlayerBrick.getInstance();
     
     GameThread gamethread = GameThread.getInstance();gamethread.start();
+
     brickmanager = BrickManager.getInstance(); 
-    Iterator brickerator = BrickManager.getIterator();
-    // le create game thread
+    brickmanager.add( new BasicBrick(50, 50, 50, 50) );
+    
+    brickerator = BrickManager.getIterator();
+    
   }
 
   public void draw() {
     background(0);
-    
+    fill(50);
     
     player.draw(this);
-    
-    fill(50);
-    rect(50,50,50,50);
-    
+
+    // drawing bricks to screen
+    while ( brickerator.hasNext() ) {
+      brickerator.next().draw(this);
+    }
+
   }
   
 }
