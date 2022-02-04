@@ -1,6 +1,5 @@
 import processing.core.PApplet;
 import components.*;
-import java.util.Iterator;
 
 public class Sketch extends PApplet {
 
@@ -17,7 +16,8 @@ public class Sketch extends PApplet {
     
     player = PlayerBrick.getInstance();
     
-    GameThread gamethread = GameThread.getInstance();gamethread.start();
+    GameThread gamethread = GameThread.getInstance(this);
+    gamethread.start();
 
     brickmanager = BrickManager.getInstance(); 
     brickmanager.add( new BasicBrick(50, 50, 50, 50) );
@@ -33,11 +33,6 @@ public class Sketch extends PApplet {
     for ( BasicBrick brick : BrickManager.getBricks() ) {
       brick.draw(this);
     }
-
-  }
-
-  public PApplet getSketch() {
-    return this;
   }
   
 }

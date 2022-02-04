@@ -3,9 +3,9 @@
     "Sketch.java": [
       {
         "id": "5cb890ae-c95b-43fc-a2d0-b5d38e35ebc9",
-        "line": 10,
-        "version": 1674,
-        "index": 190
+        "line": 9,
+        "version": 1805,
+        "index": 163
       }
     ],
     "components/CollidingObject.java": [
