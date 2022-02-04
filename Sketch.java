@@ -1,12 +1,9 @@
 import processing.core.PApplet;
 import components.*;
-import logic.*;
 import java.util.Iterator;
 
 public class Sketch extends PApplet {
 
-  private BasicBrick brick;
-  private BasicBrick brick2;
   private PlayerBrick player;
   private BrickManager brickmanager;
 
@@ -26,19 +23,19 @@ public class Sketch extends PApplet {
     brickmanager = BrickManager.getInstance(); 
     brickmanager.add( new BasicBrick(50, 50, 50, 50) );
     
-    brickerator = BrickManager.getIterator();
     
   }
 
   public void draw() {
     background(0);
-    fill(50);
-    
     player.draw(this);
 
     // drawing bricks to screen
+    brickerator = BrickManager.getIterator();
+  
     while ( brickerator.hasNext() ) {
       brickerator.next().draw(this);
+      rect(50,50,50,50);
     }
 
   }

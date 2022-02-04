@@ -1,5 +1,3 @@
-package logic;
-
 import java.util.concurrent.TimeUnit;
 import components.BrickManager;
 import components.BasicBrick;
@@ -33,9 +31,5 @@ public class GameThread extends Thread {
     if ( INSTANCE == null )
       INSTANCE = new GameThread();
     return INSTANCE;
-  }
-
-  public static int getTicks() {
-    return ticks;
   }
 }
