@@ -10,6 +10,10 @@ public class BrickManager {
   bricks = new ArrayList<BasicBrick>();  
   }
 
+  public static ArrayList<BasicBrick> getBricks() {
+    return bricks;
+  }
+
   public static BrickManager getInstance() {
     if ( INSTANCE == null )
       INSTANCE = new BrickManager();

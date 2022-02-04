@@ -14,7 +14,6 @@ public class CollidingObject {
   }
 
   public void draw(PApplet sketch) {
-    System.out.println("scribble scribble");
     sketch.pushMatrix();
     sketch.rect(this.x, this.y, width, height);
     sketch.popMatrix();

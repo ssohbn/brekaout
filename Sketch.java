@@ -7,7 +7,6 @@ public class Sketch extends PApplet {
   private PlayerBrick player;
   private BrickManager brickmanager;
 
-  Iterator<BasicBrick> brickerator;
   public void settings() {
     size(400, 400);
   }
@@ -31,13 +30,14 @@ public class Sketch extends PApplet {
     player.draw(this);
 
     // drawing bricks to screen
-    brickerator = BrickManager.getIterator();
-  
-    while ( brickerator.hasNext() ) {
-      brickerator.next().draw(this);
-      rect(50,50,50,50);
+    for ( BasicBrick brick : BrickManager.getBricks() ) {
+      brick.draw(this);
     }
 
+  }
+
+  public PApplet getSketch() {
+    return this;
   }
   
 }

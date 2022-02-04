@@ -1,0 +1,20 @@
+{
+  "files": {
+    "Sketch.java": [
+      {
+        "id": "5cb890ae-c95b-43fc-a2d0-b5d38e35ebc9",
+        "line": 10,
+        "version": 1674,
+        "index": 190
+      }
+    ],
+    "components/CollidingObject.java": [
+      {
+        "id": "1a5c2a9f-f0ae-41ea-b9dc-4377162f2955",
+        "line": 7,
+        "version": 2918,
+        "index": 88
+      }
+    ]
+  }
+}

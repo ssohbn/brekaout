@@ -8,9 +8,11 @@ public class GameThread extends Thread {
   private static GameThread INSTANCE;
   private static PlayerBrick player;
   private static BrickManager brickmanager;
+  private static PApplet sketch;
 
   private GameThread () {
-    System.out.println("i exist i guess");
+    player = PlayerBrick.getInstance();
+    brickmanager = BrickManager.getInstance();
   }
   
   @Override
@@ -18,6 +20,9 @@ public class GameThread extends Thread {
     while ( true ) {
       
       try {
+
+        player.setX(sketch);
+
         Thread.sleep(1000/30L);
          // 30 updates a second?
       } catch(InterruptedException ex) {
