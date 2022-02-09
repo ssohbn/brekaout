@@ -16,7 +16,7 @@ public class PlayerBrick extends CollidingObject {
   
   public static PlayerBrick getInstance() {
     // locks to a single playerbrick
-    if ( INSTANCE == null ) INSTANCE = new PlayerBrick(700, 50, 50, 25);
+    if ( INSTANCE == null ) INSTANCE = new PlayerBrick(350, 600, 80, 25);
     return INSTANCE;
   }
 

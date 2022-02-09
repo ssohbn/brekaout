@@ -24,10 +24,7 @@ public class GameThread extends Thread {
   public void run() {
     while ( true ) {
       try {
-
         player.setX(sketch.mouseX);
-
-
 
 
         Thread.sleep(1000/30L);

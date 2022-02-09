@@ -17,7 +17,6 @@ public class CollidingObject {
     sketch.pushMatrix();
     sketch.rect(this.x, this.y, width, height);
     sketch.popMatrix();
-
   }
 
   public boolean isColliding(CollidingObject collidable) {
