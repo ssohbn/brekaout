@@ -8,12 +8,11 @@ public class Sketch extends PApplet {
   private BrickManager brickmanager;
 
   public void settings() {
-    size(400, 400);
+    size(700, 700);
   }
 
   public void setup() {
-    background(0);
-    
+    background(10);
     
     player = PlayerBrick.getInstance();
     
@@ -22,7 +21,6 @@ public class Sketch extends PApplet {
 
     brickmanager = BrickManager.getInstance(); 
     brickmanager.add( new BasicBrick(50, 50, 50, 50) );
-    
     
   }
 

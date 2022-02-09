@@ -29,7 +29,8 @@ public class PlayerBrick extends CollidingObject {
   public void draw(PApplet sketch) {
     sketch.pushMatrix();
     sketch.fill(255, 0, 0);
-    sketch.rect(this.x, this.y, this.width, this.height);
+    sketch.ellipse(this.x, this.y, this.width, this.height);
     sketch.popMatrix();
   }
+
 }
