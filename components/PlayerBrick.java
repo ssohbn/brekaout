@@ -5,13 +5,8 @@ public class PlayerBrick extends CollidingObject {
   private static PlayerBrick INSTANCE = null;
   // singleton because I only want one player
 
-  private int x, y, width, height;
   private PlayerBrick(int x, int y, int width, int height) {
     super(x, y, width, height); 
-    this.x = x;
-    this.y = y;
-    this.width = width;
-    this.height = height;
   }
 
   @Override
@@ -21,16 +16,28 @@ public class PlayerBrick extends CollidingObject {
   
   public static PlayerBrick getInstance() {
     // locks to a single playerbrick
-    if ( INSTANCE == null ) INSTANCE = new PlayerBrick(300, 50, 50, 50);
+    if ( INSTANCE == null ) INSTANCE = new PlayerBrick(700, 50, 50, 25);
     return INSTANCE;
   }
+
+  @Override
+  public void setX(int x) {
+      // TODO Auto-generated method stub
+      super.setX(x);
+  }
+
+  @Override
+  public void setY(int y) {
+      // TODO Auto-generated method stub
+      super.setY(y);
+  }
+
 
   @Override
   public void draw(PApplet sketch) {
     sketch.pushMatrix();
     sketch.fill(255, 0, 0);
-    sketch.ellipse(this.x, this.y, this.width, this.height);
+    sketch.rect(super.getX(), super.getY(), super.getWidth(), super.getHeight());
     sketch.popMatrix();
   }
-
 }

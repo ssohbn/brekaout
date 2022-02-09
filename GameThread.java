@@ -23,11 +23,14 @@ public class GameThread extends Thread {
   @Override
   public void run() {
     while ( true ) {
-      
       try {
 
+        player.setX(sketch.mouseX);
+
+
+
+
         Thread.sleep(1000/30L);
-         // 30 updates a second?
       } catch(InterruptedException ex) {
         Thread.currentThread().interrupt();
       }
