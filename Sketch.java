@@ -25,7 +25,6 @@ public class Sketch extends PApplet {
     player.draw(this);
 
     // drawing bricks to screen
-
     for ( BasicBrick brick : BrickManager.getBricks() ) {
       brick.draw(this);
     }

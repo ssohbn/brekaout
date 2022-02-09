@@ -20,8 +20,19 @@ public class GameThread extends Thread {
     sketch = sketchy;
   }
 
+
+  private void firstLevel() {
+    for ( int y=1; y<6; y++) {
+      for ( int x=0; x<10; x++) {
+        brickmanager.add(new BasicBrick(x*80, y*40, 60, 30));
+      }
+    }
+
+  }
+
   @Override
   public void run() {
+    firstLevel();
 
     while ( true ) {
       try {
