@@ -17,6 +17,7 @@ public class Sketch extends PApplet {
 
     player = PlayerBrick.getInstance();
     brickmanager = BrickManager.getInstance(); 
+    ball = Ball.getInstance();
     
   }
 
