@@ -1,3 +1,5 @@
+package views;
+
 enum View {
   START(),
   DEATH(),
