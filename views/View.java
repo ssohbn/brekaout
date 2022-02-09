@@ -1,13 +1,14 @@
 package views;
 
 enum View {
-  START(),
-  DEATH(),
-  SHOP(),
-  GAME();
+  START,
+  DEATH,
+  SHOP,
+  GAME
 
-  private View() {
+  private View(Runnable draw) {
+    
 
   }
-  
+
 }

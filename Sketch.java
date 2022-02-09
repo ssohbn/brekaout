@@ -12,15 +12,11 @@ public class Sketch extends PApplet {
   }
 
   public void setup() {
-    background(10);
-    
-    player = PlayerBrick.getInstance();
-    
     GameThread gamethread = GameThread.getInstance(this);
     gamethread.start();
 
+    player = PlayerBrick.getInstance();
     brickmanager = BrickManager.getInstance(); 
-    brickmanager.add( new BasicBrick(50, 50, 50, 50) );
     
   }
 
@@ -29,6 +25,7 @@ public class Sketch extends PApplet {
     player.draw(this);
 
     // drawing bricks to screen
+
     for ( BasicBrick brick : BrickManager.getBricks() ) {
       brick.draw(this);
     }

@@ -22,9 +22,14 @@ public class GameThread extends Thread {
 
   @Override
   public void run() {
+
     while ( true ) {
       try {
+        // PLAYER STUFF
         player.setX(sketch.mouseX);
+
+
+        // BRICKY STUFF
 
 
         Thread.sleep(1000/30L);
