@@ -1,7 +1,6 @@
 package components;
 
 import processing.core.PApplet;
-import components.Util;
 
 public class CollidingObject {
   public  Position  position;
@@ -20,12 +19,12 @@ public class CollidingObject {
     sketch.popMatrix();
   }
 
-  public boolean isColliding(CollidingObject collidable) {
+  public boolean withinBounds(Bounds bounds) {
     if (
-      Util.posInBounds(new Position(bounds.left, bounds.top), collidable.bounds) ||
-      Util.posInBounds(new Position(bounds.right, bounds.top), collidable.bounds) ||
-      Util.posInBounds(new Position(bounds.left, bounds.bottom), collidable.bounds) ||
-      Util.posInBounds(new Position(bounds.right, bounds.bottom), collidable.bounds) ) {
+      Util.posInBounds(new Position(bounds.left, bounds.top), bounds) ||
+      Util.posInBounds(new Position(bounds.right, bounds.top), bounds) ||
+      Util.posInBounds(new Position(bounds.left, bounds.bottom), bounds) ||
+      Util.posInBounds(new Position(bounds.right, bounds.bottom), bounds) ) {
       return true;
     } else return false;
   }

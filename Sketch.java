@@ -6,6 +6,7 @@ public class Sketch extends PApplet {
   
   private PlayerBrick player;
   private Ball ball;
+  GameThread gamethread;
 
   public void settings() {
     size(700, 700);
@@ -25,7 +26,9 @@ public class Sketch extends PApplet {
     player.draw(this);
     ball.draw(this);
 
-    drawBricks();
+    if ( gamethread.drawable ) {
+      drawBricks();
+    }
     
   }
 

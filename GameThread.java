@@ -9,6 +9,7 @@ import components.Position;
 import processing.core.PApplet;
 
 public class GameThread extends Thread {
+  public boolean drawable;
   private static GameThread INSTANCE;
   private static PlayerBrick player;
   private static BrickManager brickmanager;
@@ -38,7 +39,9 @@ public class GameThread extends Thread {
 
     while ( true ) {
       try {
+        drawable = false;
         checkCollide();
+        drawable = true;
 
         // PLAYER STUFF
         player.position = new Position(sketch.mouseX, 600);
@@ -62,12 +65,12 @@ public class GameThread extends Thread {
     if ( brickerator.hasNext() ) {
       BasicBrick brick = brickerator.next();
 
-      if ( ball.isColliding( brick ) ) {
+      if ( ball.withinBounds( brick.bounds ) ) {
         brickerator.remove();
         needs2flip = true;
       }
 
-      if ( ball.isColliding(PlayerBrick.getInstance()) ) {
+      if ( ball.withinBounds(PlayerBrick.getInstance().bounds) ) {
         needs2flip = true;
       }
       
