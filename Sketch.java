@@ -6,7 +6,6 @@ public class Sketch extends PApplet {
   
   private PlayerBrick player;
   private Ball ball;
-  GameThread gamethread;
 
   public void settings() {
     size(700, 700);
@@ -14,11 +13,10 @@ public class Sketch extends PApplet {
 
 
   public void setup() {
-    GameThread gamethread = GameThread.getInstance(this);
-    gamethread.start();
 
     player = PlayerBrick.getInstance();
     ball = Ball.getInstance();
+    GameLogic.firstLevel(BrickManager.getInstance());
   }
 
   public void draw() {
@@ -26,9 +24,8 @@ public class Sketch extends PApplet {
     player.draw(this);
     ball.draw(this);
 
-    if ( gamethread.drawable ) {
-      drawBricks();
-    }
+    GameLogic.checkCollides(ball, this);
+    drawBricks();
     
   }
 
@@ -37,5 +34,6 @@ public class Sketch extends PApplet {
       brick.draw(this);
     }
   }
+
   
 }

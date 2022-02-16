@@ -2,12 +2,16 @@ package components;
 import processing.core.PApplet;
 
 public class BasicBrick extends CollidingObject {
-  
+  public Position position;
+  public Bounds bounds;
+  public Size size;  
+
   public BasicBrick(int x, int y, int width, int height) {
     super(x, y, width, height);
-    this.position = super.position;
-    this.size = super.size;
-    this.bounds = super.bounds;
+    this.position = new Position(x, y);
+    this.size = new Size(width, height);
+    this.bounds = new Bounds(position.x, position.x+size.width, position.y, position.y+size.height);
+
     BrickManager.getInstance().add(this);
   }
 
