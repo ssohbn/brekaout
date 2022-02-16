@@ -5,27 +5,31 @@ public class Sketch extends PApplet {
 
   
   private PlayerBrick player;
-  private BrickManager brickmanager;
+  private Ball ball;
 
   public void settings() {
     size(700, 700);
   }
+
 
   public void setup() {
     GameThread gamethread = GameThread.getInstance(this);
     gamethread.start();
 
     player = PlayerBrick.getInstance();
-    brickmanager = BrickManager.getInstance(); 
     ball = Ball.getInstance();
-    
   }
 
   public void draw() {
     background(10);
     player.draw(this);
+    ball.draw(this);
 
-    // drawing bricks to screen
+    drawBricks();
+    
+  }
+
+  public void drawBricks() {
     for ( BasicBrick brick : BrickManager.getBricks() ) {
       brick.draw(this);
     }

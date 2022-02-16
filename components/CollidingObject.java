@@ -1,77 +1,34 @@
 package components;
 
 import processing.core.PApplet;
+import components.Util;
 
 public class CollidingObject {
-
-  private int x, y, width, height;
+  public  Position  position;
+  public  Size      size;
+  public  Bounds    bounds;
 
   public CollidingObject(int x, int y, int width, int height) {
-    this.x = x;
-    this.y = y;
-    this.width = width;
-    this.height = height;
+    this.position  = new Position(x, y);
+    this.size      = new Size(width, height);
+    this.bounds    = new Bounds(position.x, position.x+size.width, position.y, position.y+size.height);
   }
 
   public void draw(PApplet sketch) {
     sketch.pushMatrix();
-    sketch.rect(this.x, this.y, width, height);
+    sketch.rect(position.x, position.y, size.width, size.height);
     sketch.popMatrix();
   }
 
   public boolean isColliding(CollidingObject collidable) {
-    // this part is a pain :(
-    int left = this.x;
-    int right = this.x + this.width;
-    int top = this.y;
-    int bottom = this.y + this.height;
-    // hitbox bounds
-
     if (
-      pointInCollidingObject(left, top, collidable) ||
-      pointInCollidingObject(right, top, collidable) ||
-      pointInCollidingObject(left, bottom, collidable) ||
-      pointInCollidingObject(right, bottom, collidable) ) {
-      onCollide(collidable);
+      Util.posInBounds(new Position(bounds.left, bounds.top), collidable.bounds) ||
+      Util.posInBounds(new Position(bounds.right, bounds.top), collidable.bounds) ||
+      Util.posInBounds(new Position(bounds.left, bounds.bottom), collidable.bounds) ||
+      Util.posInBounds(new Position(bounds.right, bounds.bottom), collidable.bounds) ) {
       return true;
     } else return false;
   }
 
-  private boolean pointInCollidingObject(int x, int y, CollidingObject collidable) {
-    int l = collidable.x;
-    int r = collidable.x + collidable.width;
-    int t = collidable.y;
-    int b = collidable.y + collidable.height;
-
-    if( x <= r && x >= l &&
-      y <= b && y >= t 
-    ) return true;
-    else return false;
-  }
   
-  public void onCollide(CollidingObject object) {
-    // idc
-  }
-
-  public void setX(int x) {
-    this.x = x;
-  }
-
-  public void setY(int y) {
-    this.y = y;
-  }
-
-  public int getHeight() {
-      return height;
-  }
-  public int getWidth() {
-      return width;
-  }
-  public int getX() {
-      return x;
-  }
-  public int getY() {
-      return y;
-  }
-
 }
