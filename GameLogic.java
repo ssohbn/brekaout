@@ -26,12 +26,12 @@ public class GameLogic {
 
       BasicBrick brick = brickerator.next();
       if ( ball.withinBounds( brick.bounds ) ) {
-        System.out.println(ball.position.x + " " + ball.position.y + "   " + brick.bounds.left);
+        System.out.println(ball.getPosition().x + " " + ball.getPosition().y + "   " + brick.bounds.left);
         brickerator.remove();
         needs2flip = true;
       }
 
-      if ( ball.withinBounds(PlayerBrick.getInstance().bounds) ) {
+      if ( ball.withinBounds(PlayerBrick.getInstance().getBounds()) ) {
         needs2flip = true;
       }
       

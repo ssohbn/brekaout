@@ -1,12 +1,18 @@
 package components;
 import processing.core.PApplet;
 
-public class PlayerBrick extends CollidingObject {
+public class PlayerBrick {
   private static PlayerBrick INSTANCE = null;
-  // singleton because I only want one player
+  Position pos;
+  Size size;
 
   private PlayerBrick(int x, int y, int width, int height) {
-    super(x, y, width, height); 
+    this.pos = new Position(x, y);
+    this.size = new Size(width, height);
+  }
+
+  public Bounds getBounds() {
+    return new Bounds(this.pos.x, this.pos.x + this.size.width, this.pos.y, this.pos.y + this.size.height);
   }
 
   
@@ -17,15 +23,14 @@ public class PlayerBrick extends CollidingObject {
   }
 
   public void update(PApplet sketch) {
-    position.x = sketch.mouseX;
+    this.pos.x = sketch.mouseX;
   }  
 
 
-  @Override
   public void draw(PApplet sketch) {
     sketch.pushMatrix();
     sketch.fill(255, 0, 0);
-    sketch.rect(position.x, position.y, size.width, size.height);
+    sketch.rect(pos.x, pos.y, size.width, size.height);
     sketch.popMatrix();
   }
 }
