@@ -20,21 +20,19 @@ public class GameLogic {
 
   public static void checkCollides(Ball ball, PApplet sketch) {
 
-    brickCheck(ball);
-    paddleCheck(ball);
     outOfBoundsChecks(ball, sketch);
+    paddleCheck(ball);
+    brickCheck(ball);
 
 
   }
 
   static void brickCheck(Ball ball) {
-    Iterator<Brick> brickerator = BrickManager.getIterator();
-    if ( brickerator.hasNext() ) {
-      Brick brick = brickerator.next();
-
+    for (int i = BrickManager.getBricks().size()-1; i >= 0; i--) {
+      Brick brick = BrickManager.getBricks().get(i);
       if ( ball.withinBounds( brick.getBounds()) ) {
-        brickerator.remove();
         ball.flipY();
+        BrickManager.getBricks().remove(brick);
       }
     }
   }
