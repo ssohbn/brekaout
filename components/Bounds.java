@@ -8,5 +8,12 @@ public class Bounds {
         this.top = top;
         this.bottom = bottom;
     }
+
+    public void display() {
+        System.out.println("left: " + this.left);
+        System.out.println("right: " + this.right);
+        System.out.println("top: " + this.top);
+        System.out.println("bottom: " + this.bottom);
+    }
     
 }

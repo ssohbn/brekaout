@@ -3,7 +3,7 @@ import components.BrickManager;
 import java.util.Iterator;
 
 import components.Ball;
-import components.BasicBrick;
+import components.Brick;
 import components.Bounds;
 import components.PlayerBrick;
 import processing.core.PApplet;
@@ -13,7 +13,7 @@ public class GameLogic {
   public static void firstLevel(BrickManager brickManager) {
     for ( int y=1; y<6; y++) {
       for ( int x=0; x<10; x++) {
-        brickManager.add(new BasicBrick(x*80, y*40, 60, 30));
+        brickManager.add(new Brick(x*80, y*40, 60, 30));
       }
     }
   }
@@ -21,10 +21,10 @@ public class GameLogic {
   public static void checkCollides(Ball ball, PApplet sketch) {
     boolean needs2flip = false;
 
-    Iterator<BasicBrick> brickerator = BrickManager.getIterator();
+    Iterator<Brick> brickerator = BrickManager.getIterator();
     if ( brickerator.hasNext() ) {
-
-      BasicBrick brick = brickerator.next();
+      Brick brick = brickerator.next();
+      System.out.println(brick.bounds);
       if ( ball.withinBounds( brick.bounds ) ) {
         System.out.println(ball.getPosition().x + " " + ball.getPosition().y + "   " + brick.bounds.left);
         brickerator.remove();
