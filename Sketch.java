@@ -21,15 +21,16 @@ public class Sketch extends PApplet {
   }
 
   public void draw() {
+    GameLogic.checkCollides(ball, this);
+
     background(10);
 
-    player.update(this);
     player.draw(this);
+    player.update(this);
 
-    ball.update(this);
     ball.draw(this);
+    ball.update(this);
 
-    GameLogic.checkCollides(ball, this);
     drawBricks();
     
   }

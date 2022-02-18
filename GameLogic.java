@@ -5,7 +5,6 @@ import java.util.Iterator;
 
 import components.Ball;
 import components.Brick;
-import components.Bounds;
 import components.PlayerBrick;
 import processing.core.PApplet;
 
@@ -20,31 +19,42 @@ public class GameLogic {
   }
 
   public static void checkCollides(Ball ball, PApplet sketch) {
-    boolean needs2flip = false;
 
+    brickCheck(ball);
+    paddleCheck(ball);
+    outOfBoundsChecks(ball, sketch);
+
+
+  }
+
+  static void brickCheck(Ball ball) {
     Iterator<Brick> brickerator = BrickManager.getIterator();
     if ( brickerator.hasNext() ) {
       Brick brick = brickerator.next();
 
-      if ( ball.withinBounds( brick.bounds ) ) {
+      if ( ball.withinBounds( brick.getBounds()) ) {
         brickerator.remove();
-        needs2flip = true;
-      }
-
-      if ( ball.withinBounds(PlayerBrick.getInstance().getBounds()) ) {
-        needs2flip = true;
-      }
-      if (Collisions.outOfBoundsX(ball.getBounds(), sketch)) {
-        ball.flipX();
-      }
-
-      if (Collisions.outOfBoundsY(ball.getBounds(), sketch)) {
-        ball.flipY();
-      }
-
-      if (needs2flip) {
         ball.flipY();
       }
     }
+  }
+
+
+  static void paddleCheck(Ball ball) {
+    if ( ball.withinBounds(PlayerBrick.getInstance().getBounds()) ) {
+          ball.flipY();
+    }
+  }
+
+  static void outOfBoundsChecks(Ball ball, PApplet sketch) {
+    if (Collisions.outOfBoundsX(ball.getBounds(), sketch)) {
+      ball.flipX();
+    }
+
+    if (Collisions.outOfBoundsY(ball.getBounds(), sketch)) {
+      ball.flipY();
+    }
+
+
   }
 }

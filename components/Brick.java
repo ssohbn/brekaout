@@ -2,22 +2,25 @@ package components;
 import processing.core.PApplet;
 
 public class Brick {
-  public Position position;
-  public Bounds bounds;
+  public Position pos;
   public Size size;  
 
   public Brick(int x, int y, int width, int height) {
-    this.position = new Position(x, y);
+    this.pos = new Position(x, y);
     this.size = new Size(width, height);
-    this.bounds = new Bounds(position.x, position.x+size.width, position.y, position.y+size.height);
+   
 
     BrickManager.getInstance().add(this);
+  }
+
+  public Bounds getBounds() {
+    return new Bounds(pos.x, pos.x+size.width, pos.y, pos.y+size.height);
   }
 
   public void draw(PApplet sketch) {
     sketch.fill(255);
     sketch.pushMatrix();
-    sketch.rect(position.x, position.y, size.width, size.height);
+    sketch.rect(pos.x, pos.y, size.width, size.height);
     sketch.popMatrix();
   }
 }
