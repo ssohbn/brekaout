@@ -24,9 +24,11 @@ public class GameLogic {
     Iterator<Brick> brickerator = BrickManager.getIterator();
     if ( brickerator.hasNext() ) {
       Brick brick = brickerator.next();
-      System.out.println(brick.bounds);
+      // TODO
+      // brick.bounds.display();
+
       if ( ball.withinBounds( brick.bounds ) ) {
-        System.out.println(ball.getPosition().x + " " + ball.getPosition().y + "   " + brick.bounds.left);
+
         brickerator.remove();
         needs2flip = true;
       }

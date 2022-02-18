@@ -42,19 +42,15 @@ public class Ball {
        pos.y += speed * dir.y;
     }
 
-    static boolean posInBounds(Position pos, Bounds bounds) {
+    public static boolean posInBounds(Position pos, Bounds bounds) {
         if(
             pos.x <= bounds.right && pos.x >= bounds.left &&
-            pos.y >= bounds.bottom && pos.y <= bounds.top 
+            pos.y <= bounds.bottom && pos.y >= bounds.top 
         ) return true;
         else return false;
     }
 
     public boolean withinBounds(Bounds bounds) {
-        // System.out.println("t: " + this.getBounds().top);
-        // System.out.println("b: " + this.getBounds().bottom);
-        // System.out.println("l: " + this.getBounds().left);
-        // System.out.println("r: " + this.getBounds().right);
         if (
         posInBounds(new Position(this.getBounds().left, this.getBounds().top), bounds) ||
         posInBounds(new Position(this.getBounds().right, this.getBounds().top), bounds) ||
