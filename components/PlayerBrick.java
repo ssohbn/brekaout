@@ -16,7 +16,9 @@ public class PlayerBrick extends CollidingObject {
     return INSTANCE;
   }
 
-  
+  public void update(PApplet sketch) {
+    position.x = sketch.mouseX;
+  }  
 
 
   @Override

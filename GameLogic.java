@@ -16,7 +16,6 @@ public class GameLogic {
         brickManager.add(new BasicBrick(x*80, y*40, 60, 30));
       }
     }
-
   }
 
   public static void checkCollides(Ball ball, PApplet sketch) {

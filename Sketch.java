@@ -12,6 +12,7 @@ public class Sketch extends PApplet {
   }
 
 
+
   public void setup() {
 
     player = PlayerBrick.getInstance();
@@ -21,7 +22,11 @@ public class Sketch extends PApplet {
 
   public void draw() {
     background(10);
+
+    player.update(this);
     player.draw(this);
+
+    ball.update(this);
     ball.draw(this);
 
     GameLogic.checkCollides(ball, this);

@@ -6,14 +6,18 @@ public class Ball extends CollidingObject {
 
     private static Ball INSTANCE;
     Direction dir = new Direction(1, -1);
-    static int speed = 10;
-    static Position pos;
-    static Size size;
+    int speed = 10;
+    Position pos;
+    Size size;
 
     private Ball(int x, int y, int width, int height) {
         super(x, y, width, height); 
-        Ball.pos = super.position;
-        Ball.size = super.size;
+        this.pos = new Position(x, y);
+        this.size = new Size(width, height);
+    }
+
+    public void update(PApplet sketch) {
+        position = new Position(position.x + (speed*dir.x), position.y + (speed*dir.y));
     }
 
     public static Ball getInstance() {
@@ -36,7 +40,6 @@ public class Ball extends CollidingObject {
     }
 
     public void flip() {
-        dir.flip();
+        this.dir.flip();
     }
-
 }

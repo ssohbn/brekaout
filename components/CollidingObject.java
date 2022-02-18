@@ -2,10 +2,10 @@ package components;
 
 import processing.core.PApplet;
 
-public class CollidingObject {
-  public  Position  position;
-  public  Size      size;
-  public  Bounds    bounds;
+abstract class CollidingObject {
+  public Position  position;
+  public Size      size;
+  public Bounds    bounds;
 
   public CollidingObject(int x, int y, int width, int height) {
     this.position  = new Position(x, y);
