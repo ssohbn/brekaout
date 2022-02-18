@@ -1,4 +1,5 @@
 import components.BrickManager;
+import components.Collisions;
 
 import java.util.Iterator;
 
@@ -24,11 +25,8 @@ public class GameLogic {
     Iterator<Brick> brickerator = BrickManager.getIterator();
     if ( brickerator.hasNext() ) {
       Brick brick = brickerator.next();
-      // TODO
-      // brick.bounds.display();
 
       if ( ball.withinBounds( brick.bounds ) ) {
-
         brickerator.remove();
         needs2flip = true;
       }
@@ -36,15 +34,16 @@ public class GameLogic {
       if ( ball.withinBounds(PlayerBrick.getInstance().getBounds()) ) {
         needs2flip = true;
       }
-      
-      if (  
-        ball.withinBounds(new Bounds(0, sketch.width, 0, sketch.height))
-      ) {
-        needs2flip = true;
+      if (Collisions.outOfBoundsX(ball.getBounds(), sketch)) {
+        ball.flipX();
       }
 
-      if ( needs2flip ) {
-        ball.flip();
+      if (Collisions.outOfBoundsY(ball.getBounds(), sketch)) {
+        ball.flipY();
+      }
+
+      if (needs2flip) {
+        ball.flipY();
       }
     }
   }

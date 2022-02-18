@@ -42,20 +42,14 @@ public class Ball {
        pos.y += speed * dir.y;
     }
 
-    public static boolean posInBounds(Position pos, Bounds bounds) {
-        if(
-            pos.x <= bounds.right && pos.x >= bounds.left &&
-            pos.y <= bounds.bottom && pos.y >= bounds.top 
-        ) return true;
-        else return false;
-    }
+    
 
     public boolean withinBounds(Bounds bounds) {
         if (
-        posInBounds(new Position(this.getBounds().left, this.getBounds().top), bounds) ||
-        posInBounds(new Position(this.getBounds().right, this.getBounds().top), bounds) ||
-        posInBounds(new Position(this.getBounds().left, this.getBounds().bottom), bounds) ||
-        posInBounds(new Position(this.getBounds().right, this.getBounds().bottom), bounds) ) {
+        Collisions.posInBounds(new Position(this.getBounds().left, this.getBounds().top), bounds) ||
+        Collisions.posInBounds(new Position(this.getBounds().right, this.getBounds().top), bounds) ||
+        Collisions.posInBounds(new Position(this.getBounds().left, this.getBounds().bottom), bounds) ||
+        Collisions.posInBounds(new Position(this.getBounds().right, this.getBounds().bottom), bounds) ) {
         return true;
         } else return false;
     }
@@ -66,7 +60,17 @@ public class Ball {
         sketch.popMatrix();
     }
 
+
     public void flip() {
         this.dir.flip();
     }
+
+    public void flipX() {
+        this.dir.x *= -1;
+    }
+
+    public void flipY() {
+        this.dir.y *= -1;
+    }
 }
+
