@@ -1,7 +1,7 @@
 import components.BrickManager;
 import components.Ball;
 import components.Brick;
-import components.PlayerBrick;
+import components.Paddle;
 import components.data.Collisions;
 import processing.core.PApplet;
 import java.util.ArrayList;
@@ -11,6 +11,7 @@ public class GameLogic {
   public static void firstLevel(BrickManager brickManager) {
     for ( int y=1; y<6; y++) {
       for ( int x=0; x<10; x++) {
+        //brick automatically adds itself to the brickmanager
         new Brick(x*80, y*40, 60, 30);
       }
     }
@@ -40,7 +41,7 @@ public class GameLogic {
   }
 
   static boolean paddleCheck(Ball ball) {
-    if ( ball.withinBounds(PlayerBrick.getInstance().getBounds()) ) {
+    if ( ball.withinBounds(Paddle.getInstance().getBounds()) ) {
       return true;
     }
     return false;
