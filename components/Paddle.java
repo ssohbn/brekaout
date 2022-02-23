@@ -20,7 +20,7 @@ public class Paddle {
 
   public static Paddle getInstance() {
     // locks to a single playerbrick
-    if ( INSTANCE == null ) INSTANCE = new Paddle(350, 600, 80, 25);
+    if ( INSTANCE == null ) INSTANCE = new Paddle(350, 600, 100, 5);
     return INSTANCE;
   }
 
