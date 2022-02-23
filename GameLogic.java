@@ -1,7 +1,7 @@
 import components.BrickManager;
 import components.Ball;
 import components.Brick;
-import components.Paddle;
+import components.Player;
 import components.data.Collisions;
 import processing.core.PApplet;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class GameLogic {
   }
 
   public static void checkCollides(Ball ball, PApplet sketch) {
-    if (Paddle.getInstance().hasClicked) {
+    if (Player.getInstance().hasClicked) {
       if (brickCheck(ball)||paddleCheck(ball)) {
         ball.flipY();
       } else {
@@ -42,7 +42,7 @@ public class GameLogic {
   }
 
   static boolean paddleCheck(Ball ball) {
-    if ( ball.withinBounds(Paddle.getInstance().getBounds()) ) {
+    if ( ball.withinBounds(Player.getInstance().getBounds()) ) {
       return true;
     }
     return false;

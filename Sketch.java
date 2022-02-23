@@ -3,7 +3,7 @@ import components.*;
 
 public class Sketch extends PApplet {
 
-  private Paddle player;
+  private Player player;
   private Ball ball;
 
   public void settings() {
@@ -11,7 +11,7 @@ public class Sketch extends PApplet {
   }
 
   public void setup() {
-    player = Paddle.getInstance();
+    player = Player.getInstance();
     ball = Ball.getInstance();
     GameLogic.firstLevel(BrickManager.getInstance());
 
