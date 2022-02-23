@@ -4,13 +4,13 @@ import components.data.Position;
 import components.data.Size;
 import processing.core.PApplet;
 
-public class Paddle {
-  private static Paddle INSTANCE = null;
+public class Player {
+  private static Player INSTANCE = null;
   Position pos;
   Size size;
   public boolean hasClicked;
 
-  private Paddle(int x, int y, int width, int height) {
+  private Player(int x, int y, int width, int height) {
     this.pos = new Position(x, y);
     this.size = new Size(width, height);
   }
@@ -18,9 +18,9 @@ public class Paddle {
     return new Bounds(this.pos.x, this.pos.x + this.size.width, this.pos.y, this.pos.y + this.size.height);
   }
 
-  public static Paddle getInstance() {
+  public static Player getInstance() {
     // locks to a single playerbrick
-    if ( INSTANCE == null ) INSTANCE = new Paddle(350, 600, 100, 5);
+    if ( INSTANCE == null ) INSTANCE = new Player(350, 600, 100, 5);
     return INSTANCE;
   }
 
