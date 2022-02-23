@@ -35,6 +35,9 @@ public class GameLogic {
 
       if ( ball.withinBounds( brick.getBounds()) ) {
         brick.health -= 1;
+        if (brick.health==0) {
+          bricks.remove(brick);
+        }
         return true;
       }
     }
