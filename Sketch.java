@@ -10,8 +10,6 @@ public class Sketch extends PApplet {
     size(700, 700);
   }
 
-
-
   public void setup() {
     player = Paddle.getInstance();
     ball = Ball.getInstance();
@@ -21,12 +19,16 @@ public class Sketch extends PApplet {
 
   public void draw() {
     background(10);
-    player.draw(this);
-    ball.draw(this);
-    drawBricks();
 
-    ball.update(this);
+    player.draw(this);
     player.update(this);
+
+    if (player.hasClicked) {
+      ball.draw(this);
+      ball.update(this);
+    }
+
+    drawBricks();
     GameLogic.checkCollides(ball, this);
 
   }

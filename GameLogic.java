@@ -18,13 +18,14 @@ public class GameLogic {
   }
 
   public static void checkCollides(Ball ball, PApplet sketch) {
-
-    if (brickCheck(ball)||paddleCheck(ball)) {
-      ball.flipY();
-    } else {
-      outOfBoundsChecks(ball, sketch);
+    if (Paddle.getInstance().hasClicked) {
+      if (brickCheck(ball)||paddleCheck(ball)) {
+        ball.flipY();
+      } else {
+        outOfBoundsChecks(ball, sketch);
+      }
     }
-  }
+ }
 
   static boolean brickCheck(Ball ball) {
     ArrayList<Brick> bricks = BrickManager.getBricks();

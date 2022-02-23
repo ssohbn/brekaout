@@ -14,6 +14,7 @@ public class Ball {
     int speed = 7;
     Position pos;
     Size size;
+    
 
     private Ball(int x, int y, int width, int height) {
         this.pos = new Position(x, y);
