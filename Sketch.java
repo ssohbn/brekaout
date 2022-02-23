@@ -13,7 +13,7 @@ public class Sketch extends PApplet {
   public void setup() {
     player = Player.getInstance();
     ball = Ball.getInstance();
-    GameLogic.firstLevel(BrickManager.getInstance());
+    BrickManager.genLevel();
 
   }
 

@@ -8,15 +8,6 @@ import java.util.ArrayList;
 
 public class GameLogic {
 
-  public static void firstLevel(BrickManager brickManager) {
-    for ( int y=1; y<6; y++) {
-      for ( int x=0; x<10; x++) {
-        //brick automatically adds itself to the brickmanager
-        new Brick(x*80, y*40, 60, 30);
-      }
-    }
-  }
-
   public static void checkCollides(Ball ball, PApplet sketch) {
     if (Player.getInstance().hasClicked) {
       if (brickCheck(ball)||paddleCheck(ball)) {

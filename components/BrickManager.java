@@ -13,6 +13,15 @@ public class BrickManager {
     return bricks;
   }
 
+  public static void genLevel() {
+    for ( int y=0; y<3; y++) {
+      for ( int x=0; x<9; x++) {
+        //brick automatically adds itself to the brickmanager
+        new Brick(x*80, y*40, 60, 30);
+      }
+    }
+  }
+
   // i dont remember why i made this a singleton
   public static BrickManager getInstance() {
     if ( INSTANCE == null )
