@@ -3,7 +3,6 @@ import components.*;
 
 public class Sketch extends PApplet {
 
-  
   private Paddle player;
   private Ball ball;
 
@@ -30,6 +29,10 @@ public class Sketch extends PApplet {
     player.update(this);
     GameLogic.checkCollides(ball, this);
 
+  }
+
+  public void mouseClicked() {
+    player.hasClicked = true;
   }
 
   public void drawBricks() {
