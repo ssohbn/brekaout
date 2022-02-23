@@ -23,8 +23,4 @@ public class BrickManager {
   public void add(Brick brick) {
     bricks.add(brick);
   }
-
-  public static Iterator<Brick> getIterator() {
-    return bricks.iterator();
-  }
 }

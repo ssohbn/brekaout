@@ -1,5 +1,7 @@
 package components.data;
 
+import processing.core.PApplet;
+
 public class Position {
     public int x, y;
     public Position(int x, int y) {
