@@ -1,4 +1,4 @@
-package components;
+package components.data;
 
 public class Bounds {
     public int left, right, top, bottom;

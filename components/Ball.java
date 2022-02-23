@@ -1,12 +1,17 @@
 package components;
 
+import components.data.Bounds;
+import components.data.Collisions;
+import components.data.Direction;
+import components.data.Position;
+import components.data.Size;
 import processing.core.PApplet;
 
 public class Ball {
 
     private static Ball INSTANCE;
     Direction dir = new Direction(1, -1);
-    int speed = 10;
+    int speed = 7;
     Position pos;
     Size size;
 
@@ -16,12 +21,12 @@ public class Ball {
     }
 
     public void update(PApplet sketch) {
-        pos= new Position(pos.x + (speed*dir.x), pos.y + (speed*dir.y));
+        pos= new Position(pos.x + (speed*this.dir.x), pos.y + (speed*this.dir.y));
     }
 
     public static Ball getInstance() {
         if ( INSTANCE == null )
-        INSTANCE = new Ball(300, 300, 50, 50);
+        INSTANCE = new Ball(300, 300, 20, 20);
         return INSTANCE;
     }
     
@@ -53,10 +58,14 @@ public class Ball {
         return true;
         } else return false;
     }
+
+    public Direction getDirection() {
+        return this.dir;
+    }
     
     public void draw(PApplet sketch) {
         sketch.pushMatrix();
-        sketch.ellipse(pos.x, pos.y, size.width, size.height);
+        sketch.rect(pos.x, pos.y, size.width, size.height);
         sketch.popMatrix();
     }
 

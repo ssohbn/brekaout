@@ -1,4 +1,4 @@
-package components;
+package components.data;
 
 import processing.core.PApplet;
 
@@ -12,7 +12,7 @@ public class Collisions {
     }
 
     public static boolean outOfBoundsX(Bounds pBounds, PApplet sketch) {
-        if ( pBounds.left < 0 || pBounds.right < 0 || pBounds.right > sketch.width || pBounds.left > sketch.width) {
+        if ( pBounds.left < 0  || pBounds.right > sketch.width )  {
             return true;
         }
         return false;

@@ -1,4 +1,4 @@
-package components;
+package components.data;
 
 public class Size {
    public int width, height;

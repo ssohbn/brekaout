@@ -1,4 +1,7 @@
 package components;
+import components.data.Bounds;
+import components.data.Position;
+import components.data.Size;
 import processing.core.PApplet;
 
 public class Brick {
@@ -8,7 +11,6 @@ public class Brick {
   public Brick(int x, int y, int width, int height) {
     this.pos = new Position(x, y);
     this.size = new Size(width, height);
-   
 
     BrickManager.getInstance().add(this);
   }

@@ -1,4 +1,7 @@
 package components;
+import components.data.Bounds;
+import components.data.Position;
+import components.data.Size;
 import processing.core.PApplet;
 
 public class PlayerBrick {

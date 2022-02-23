@@ -1,4 +1,4 @@
-package components;
+package components.data;
 
 public class Position {
     public int x, y;

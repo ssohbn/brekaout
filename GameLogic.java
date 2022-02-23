@@ -1,12 +1,10 @@
 import components.BrickManager;
-import components.Collisions;
-
-import java.util.Iterator;
-
 import components.Ball;
 import components.Brick;
 import components.PlayerBrick;
+import components.data.Collisions;
 import processing.core.PApplet;
+import java.util.ArrayList;
 
 public class GameLogic {
 
@@ -20,28 +18,30 @@ public class GameLogic {
 
   public static void checkCollides(Ball ball, PApplet sketch) {
 
-    outOfBoundsChecks(ball, sketch);
-    paddleCheck(ball);
-    brickCheck(ball);
-
-
+    if (brickCheck(ball)||paddleCheck(ball)) {
+      ball.flipY();
+    } else {
+      outOfBoundsChecks(ball, sketch);
+    }
   }
 
-  static void brickCheck(Ball ball) {
-    for (int i = BrickManager.getBricks().size()-1; i >= 0; i--) {
-      Brick brick = BrickManager.getBricks().get(i);
+  static boolean brickCheck(Ball ball) {
+    ArrayList<Brick> bricks = BrickManager.getBricks();
+    for (int i = bricks.size()-1; i >= 0; i--) {
+      Brick brick = bricks.get(i);
       if ( ball.withinBounds( brick.getBounds()) ) {
-        ball.flipY();
-        BrickManager.getBricks().remove(brick);
+        System.out.println(bricks.remove(i));
+        return true;
       }
     }
+    return false;
   }
 
-
-  static void paddleCheck(Ball ball) {
+  static boolean paddleCheck(Ball ball) {
     if ( ball.withinBounds(PlayerBrick.getInstance().getBounds()) ) {
-          ball.flipY();
+      return true;
     }
+    return false;
   }
 
   static void outOfBoundsChecks(Ball ball, PApplet sketch) {
@@ -52,7 +52,6 @@ public class GameLogic {
     if (Collisions.outOfBoundsY(ball.getBounds(), sketch)) {
       ball.flipY();
     }
-
 
   }
 }
