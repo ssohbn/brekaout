@@ -24,4 +24,11 @@ public class Collisions {
         }
         return false;
     }
+
+    public static boolean belowScreenHeight(Bounds pBounds, PApplet sketch) {
+        if (pBounds.bottom > sketch.height) {
+            return true;
+        }
+        return false;
+    }
 }

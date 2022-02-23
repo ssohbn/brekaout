@@ -54,6 +54,10 @@ public class GameLogic {
     }
 
     if (Collisions.outOfBoundsY(ball.getBounds(), sketch)) {
+      if (Collisions.belowScreenHeight(ball.getBounds(), sketch)) {
+        Player.getInstance().decrementLives();
+      }
+      // flips no matter if lives are lost
       ball.flipY();
     }
 

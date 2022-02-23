@@ -19,18 +19,25 @@ public class Sketch extends PApplet {
 
   public void draw() {
     background(10);
+    if (player.getLives() != 0) {
+      if (!player.hasClicked) {
+        text("hit the mouse button to begin", 80, 300);  // Default depth, no z-value specified
+      }
 
-    player.draw(this);
-    player.update(this);
+      player.draw(this);
+      player.update(this);
 
-    if (player.hasClicked) {
-      ball.draw(this);
-      ball.update(this);
-    }
-
-    drawBricks();
-    GameLogic.checkCollides(ball, this);
-
+      drawLives();
+      drawBricks();
+      GameLogic.checkCollides(ball, this);
+      
+      if (player.hasClicked) {
+        ball.draw(this);
+        ball.update(this);
+      } 
+    } else {
+      text("lives are gone. time 2 restart ", 48, 240);  // Default depth, no z-value specified
+   }
   }
 
   public void mouseClicked() {
@@ -42,5 +49,9 @@ public class Sketch extends PApplet {
       if (brick.health != 0)
         brick.draw(this);
     }
+  }
+
+  public void drawLives() {
+    text("lives: " + player.getLives(), 48, 240);  // Default depth, no z-value specified
   }
 }
