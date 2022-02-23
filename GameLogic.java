@@ -29,8 +29,10 @@ public class GameLogic {
     ArrayList<Brick> bricks = BrickManager.getBricks();
     for (int i = bricks.size()-1; i >= 0; i--) {
       Brick brick = bricks.get(i);
+      if (brick.health ==0) continue;
+
       if ( ball.withinBounds( brick.getBounds()) ) {
-        System.out.println(bricks.remove(i));
+        brick.health -= 1;
         return true;
       }
     }

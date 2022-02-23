@@ -6,7 +6,7 @@ public class BrickManager {
   private static ArrayList<Brick> bricks;
   
   private BrickManager() {
-  bricks = new ArrayList<Brick>();  
+    bricks = new ArrayList<Brick>();  
   }
 
   public static ArrayList<Brick> getBricks() {

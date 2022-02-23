@@ -7,6 +7,7 @@ import processing.core.PApplet;
 public class Brick {
   public final Position POS;
   public final Size SIZE;  
+  public int health = 1;
 
   public Brick(int x, int y, int width, int height) {
     this.POS = new Position(x, y);

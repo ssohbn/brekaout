@@ -47,8 +47,6 @@ public class Ball {
        pos.y += speed * dir.y;
     }
 
-    
-
     public boolean withinBounds(Bounds bounds) {
         if (
         Collisions.posInBounds(new Position(this.getBounds().left, this.getBounds().top), bounds) ||

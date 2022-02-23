@@ -34,7 +34,8 @@ public class Sketch extends PApplet {
 
   public void drawBricks() {
     for ( Brick brick : BrickManager.getBricks() ) {
-      brick.draw(this);
+      if (brick.health != 0)
+        brick.draw(this);
     }
   }
 }
