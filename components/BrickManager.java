@@ -13,6 +13,7 @@ public class BrickManager {
     return bricks;
   }
 
+  // i dont remember why i made this a singleton
   public static BrickManager getInstance() {
     if ( INSTANCE == null )
       INSTANCE = new BrickManager();
