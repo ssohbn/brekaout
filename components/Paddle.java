@@ -4,12 +4,12 @@ import components.data.Position;
 import components.data.Size;
 import processing.core.PApplet;
 
-public class PlayerBrick {
-  private static PlayerBrick INSTANCE = null;
+public class Paddle {
+  private static Paddle INSTANCE = null;
   Position pos;
   Size size;
 
-  private PlayerBrick(int x, int y, int width, int height) {
+  private Paddle(int x, int y, int width, int height) {
     this.pos = new Position(x, y);
     this.size = new Size(width, height);
   }
@@ -18,17 +18,15 @@ public class PlayerBrick {
     return new Bounds(this.pos.x, this.pos.x + this.size.width, this.pos.y, this.pos.y + this.size.height);
   }
 
-  
-  public static PlayerBrick getInstance() {
+  public static Paddle getInstance() {
     // locks to a single playerbrick
-    if ( INSTANCE == null ) INSTANCE = new PlayerBrick(350, 600, 80, 25);
+    if ( INSTANCE == null ) INSTANCE = new Paddle(350, 600, 80, 25);
     return INSTANCE;
   }
 
   public void update(PApplet sketch) {
     this.pos.x = sketch.mouseX;
   }  
-
 
   public void draw(PApplet sketch) {
     sketch.pushMatrix();
