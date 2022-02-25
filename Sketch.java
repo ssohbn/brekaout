@@ -1,10 +1,12 @@
 import processing.core.PApplet;
+import processing.core.PImage;
 import components.*;
 
 public class Sketch extends PApplet {
 
   private Player player;
   private Ball ball;
+  PImage img;
 
   public void settings() {
     size(700, 700);
@@ -14,11 +16,12 @@ public class Sketch extends PApplet {
     player = Player.getInstance();
     ball = Ball.getInstance();
     BrickManager.genLevel();
-
+    img = loadImage("./ferris.png");
   }
 
   public void draw() {
     background(10);
+    image(img, 0, 0, width, height);
 
     if (player.getLives() != 0) {
       if (!player.hasClicked) {
