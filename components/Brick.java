@@ -7,7 +7,7 @@ import processing.core.PApplet;
 public class Brick {
   public final Position POS;
   public final Size SIZE;  
-  public int health = 1;
+  public int health = 3;
 
   public Brick(int x, int y, int width, int height) {
     this.POS = new Position(x, y);
@@ -19,7 +19,25 @@ public class Brick {
   }
 
   public void draw(PApplet sketch) {
-    sketch.fill(255);
+
+    switch (health) {
+
+      case 3:
+        // geren
+        sketch.fill(0, 255, 0);
+        break;
+
+      case 2: 
+        sketch.fill(255, 255, 0);
+        // yellow
+        break;
+
+      case 1:
+        sketch.fill(255, 0, 0);
+        // red
+        break;
+    }
+
     sketch.pushMatrix();
     sketch.rect(POS.x, POS.y, SIZE.width, SIZE.height);
     sketch.popMatrix();

@@ -42,6 +42,7 @@ public class Sketch extends PApplet {
         ball.draw(this);
         ball.update(this);
       } 
+
     } else {
       text("lives are gone. time 2 restart ", 48, 240);
    }
