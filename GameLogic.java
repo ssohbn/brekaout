@@ -19,7 +19,7 @@ public class GameLogic {
  }
 
   static boolean brickCheck(Ball ball) {
-    ArrayList<Brick> bricks = BrickManager.getBricks();
+    ArrayList<Brick> bricks = BrickManager.getInstance().getBricks();
     for (int i = bricks.size()-1; i >= 0; i--) {
       Brick brick = bricks.get(i);
       if (brick.health ==0) continue;

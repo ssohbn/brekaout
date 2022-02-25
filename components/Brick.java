@@ -12,7 +12,6 @@ public class Brick {
   public Brick(int x, int y, int width, int height) {
     this.POS = new Position(x, y);
     this.SIZE = new Size(width, height);
-    BrickManager.getInstance().add(this);
   }
 
   public Bounds getBounds() {
