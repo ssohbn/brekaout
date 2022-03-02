@@ -1,8 +1,10 @@
 import components.Ball;
 import components.Brick;
 import components.Player;
+import components.PowerUp;
 import components.data.Collisions;
 import components.managey.BrickManager;
+import components.managey.PowerUpManager;
 import processing.core.PApplet;
 import java.util.ArrayList;
 import java.util.Random;
@@ -40,7 +42,45 @@ public class GameLogic {
 
   static void brickDied(Brick brick) {
     if (random.nextBoolean()) {
-    //  brick.POS.x
+      PowerUpManager.getInstance().add(new PowerUp(brick.POS.x, brick.POS.y, 5, 5));
+    }
+  }
+
+  static void powerUpCheck(Ball ball) {
+    for ( int i = 0; i < PowerUpManager.getInstance().getPowerUps().size(); i++ ) {
+      if ( ball.withinBounds(PowerUpManager.getInstance().getPowerUps().get(i).getBounds()) ) {
+        PowerUpManager.getInstance()
+          .getPowerUps()
+          .remove(PowerUpManager
+          .getInstance()
+          .getPowerUps()
+          .get(
+            (
+              (
+                (
+                  (
+                    (
+                      (
+                        (
+                          (
+                            (
+                              (
+                                (
+                                  i
+                                )
+                              )
+                            )
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          )
+        );
+      }
     }
   }
 

@@ -7,9 +7,10 @@ import components.data.Position;
 import components.data.Size;
 import components.data.interfaces.Collide;
 import components.data.interfaces.Draw;
+import components.data.interfaces.Move;
 import processing.core.PApplet;
 
-public class Ball implements Collide, Draw {
+public class Ball implements Collide, Draw, Move {
 
     private static Ball INSTANCE;
     Direction dir = new Direction(1, -1);

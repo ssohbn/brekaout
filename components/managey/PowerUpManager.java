@@ -18,7 +18,7 @@ public class PowerUpManager {
         return INSTANCE;
     }
 
-    public ArrayList<PowerUp> getBricks() {
+    public ArrayList<PowerUp> getPowerUps() {
         return this.powerUps;
     }
 

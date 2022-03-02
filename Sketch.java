@@ -2,6 +2,7 @@ import processing.core.PApplet;
 import processing.core.PImage;
 import components.*;
 import components.managey.BrickManager;
+import components.managey.PowerUpManager;
 
 public class Sketch extends PApplet {
 
@@ -27,6 +28,12 @@ public class Sketch extends PApplet {
     if (player.getLives() != 0) {
       if (!player.hasClicked) {
         text("hit the mouse button to begin", 80, 300);  // Default depth, no z-value specified
+      }
+
+
+      fill(0, 255, 0);
+      for ( PowerUp powerUp : PowerUpManager.getInstance().getPowerUps()) {
+        powerUp.update();
       }
 
       fill(255,0,0);
@@ -59,9 +66,15 @@ public class Sketch extends PApplet {
     }
   }
 
+  public void drawPowerUps() {
+    for ( PowerUp powerUp : PowerUpManager.getInstance().getPowerUps() ) {
+      powerUp.draw(this);
+    }
+  }
+
   public void drawLivesAndScore() {
     text("lives: " + player.getLives(), 48, 240);
     text("score: " + BrickManager.getInstance().getLevel(), 48, 340);
   }
-  
+
 }
