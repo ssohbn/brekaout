@@ -17,6 +17,10 @@ public class PowerUpManager {
         return INSTANCE;
     }
 
+    public ArrayList<PowerUp> getBricks() {
+        return this.powerUps;
+    }
+
     public void add(PowerUp powerUp) {
         powerUps.add(powerUp);
     }
