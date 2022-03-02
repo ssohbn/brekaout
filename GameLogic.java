@@ -14,6 +14,8 @@ public class GameLogic {
 
   public static void checkCollides(Ball ball, PApplet sketch) {
     if (Player.getInstance().hasClicked) {
+
+      powerUpCheck();
       if (brickCheck(ball)||paddleCheck(ball)) {
         ball.flipY();
       } else {

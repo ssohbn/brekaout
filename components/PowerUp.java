@@ -12,7 +12,7 @@ import processing.core.PApplet;
 public class PowerUp implements Collide, Draw, Move {
     public Position pos;
     public final Size SIZE;  
-    public final int SPEED = 10;
+    public final int SPEED = 3;
 
     public PowerUp(int x, int y, int width, int height) {
         this.pos = new Position(x, y);
