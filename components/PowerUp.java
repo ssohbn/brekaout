@@ -1,6 +1,7 @@
 package components;
 
 import components.data.Bounds;
+import components.data.Collisions;
 import components.data.Position;
 import components.data.Size;
 import components.data.interfaces.Collide;
@@ -16,6 +17,16 @@ public class PowerUp implements Collide, Draw, Move {
     public PowerUp(int x, int y, int width, int height) {
         this.pos = new Position(x, y);
         this.SIZE = new Size(width, height);
+    }
+
+    public boolean withinBounds(Bounds bounds) {
+        if (
+        Collisions.posInBounds(new Position(this.getBounds().left, this.getBounds().top), bounds) ||
+        Collisions.posInBounds(new Position(this.getBounds().right, this.getBounds().top), bounds) ||
+        Collisions.posInBounds(new Position(this.getBounds().left, this.getBounds().bottom), bounds) ||
+        Collisions.posInBounds(new Position(this.getBounds().right, this.getBounds().bottom), bounds) ) {
+        return true;
+        } else return false;
     }
 
     public Bounds getBounds() {

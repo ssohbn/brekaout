@@ -1,5 +1,6 @@
 package components;
 import components.data.Bounds;
+import components.data.Collisions;
 import components.data.Position;
 import components.data.Size;
 import components.data.interfaces.Collide;
@@ -27,6 +28,16 @@ public class Player implements Collide, Draw {
     return new Bounds(this.pos.x, this.pos.x + this.size.width, this.pos.y, this.pos.y + this.size.height);
   }
 
+  public boolean withinBounds(Bounds bounds) {
+        if (
+        Collisions.posInBounds(new Position(this.getBounds().left, this.getBounds().top), bounds) ||
+        Collisions.posInBounds(new Position(this.getBounds().right, this.getBounds().top), bounds) ||
+        Collisions.posInBounds(new Position(this.getBounds().left, this.getBounds().bottom), bounds) ||
+        Collisions.posInBounds(new Position(this.getBounds().right, this.getBounds().bottom), bounds) ) {
+        return true;
+        } else return false;
+  };
+
   public static Player getInstance() {
     // locks to a single playerbrick
     if ( INSTANCE == null ) INSTANCE = new Player(350, 600, 100, 5);
@@ -35,6 +46,9 @@ public class Player implements Collide, Draw {
 
   public int getLives() {
     return this.lives;
+  }
+  public void setLives(int il) { 
+    this.lives = il;
   }
 
   public void update(PApplet sketch) {

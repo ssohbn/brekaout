@@ -46,15 +46,19 @@ public class GameLogic {
     }
   }
 
-  static void powerUpCheck(Ball ball) {
+  static void powerUpCheck() {
     for ( int i = 0; i < PowerUpManager.getInstance().getPowerUps().size(); i++ ) {
-      if ( ball.withinBounds(PowerUpManager.getInstance().getPowerUps().get(i).getBounds()) ) {
+      // bricks do not get removed out of bounds as a feature
+      // as the game goes on, u will leak memory 
+      // unless the jvm gets aggressive
+      if ( PowerUpManager.getInstance().getPowerUps().get(i).withinBounds(Player.getInstance().getBounds()) ) {
+        Player.getInstance().setLives(Player.getInstance().getLives()+1);
         PowerUpManager.getInstance()
           .getPowerUps()
           .remove(PowerUpManager
           .getInstance()
           .getPowerUps()
-          .get(
+          .get( // funky pyramid :)
             (
               (
                 (

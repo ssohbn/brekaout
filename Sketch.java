@@ -31,10 +31,11 @@ public class Sketch extends PApplet {
       }
 
 
-      fill(0, 255, 0);
       for ( PowerUp powerUp : PowerUpManager.getInstance().getPowerUps()) {
         powerUp.update();
       }
+      fill(0, 255, 0);
+      drawPowerUps();
 
       fill(255,0,0);
       player.draw(this);
