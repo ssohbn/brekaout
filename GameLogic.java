@@ -72,7 +72,9 @@ public class GameLogic {
                             (
                               (
                                 (
-                                  i
+                                  (
+                                    i
+                                  )
                                 )
                               )
                             )
@@ -109,6 +111,5 @@ public class GameLogic {
       // flips no matter if lives are lost
       ball.flipY();
     }
-
   }
 }
