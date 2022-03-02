@@ -2,9 +2,11 @@ package components;
 import components.data.Bounds;
 import components.data.Position;
 import components.data.Size;
+import components.data.interfaces.Collide;
+import components.data.interfaces.Draw;
 import processing.core.PApplet;
 
-public class Player {
+public class Player implements Collide, Draw {
   private static Player INSTANCE = null;
   Position pos;
   Size size;

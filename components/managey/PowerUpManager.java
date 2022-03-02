@@ -7,7 +7,6 @@ import components.PowerUp;
 public class PowerUpManager {
     private static PowerUpManager INSTANCE;
     private ArrayList<PowerUp> powerUps;
-    private int level = 0;
 
     private PowerUpManager() {
         powerUps = new ArrayList<PowerUp>();  

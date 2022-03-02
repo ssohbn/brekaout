@@ -2,10 +2,11 @@ package components;
 import components.data.Bounds;
 import components.data.Position;
 import components.data.Size;
-import components.data.interfaces.Colliding;
+import components.data.interfaces.Collide;
+import components.data.interfaces.Draw;
 import processing.core.PApplet;
 
-public class Brick implements Colliding {
+public class Brick implements Collide, Draw {
   public final Position POS;
   public final Size SIZE;  
   public int health = 3;
