@@ -1,6 +1,8 @@
-package components;
+package components.managey;
 
 import java.util.ArrayList;
+
+import components.PowerUp;
 
 public class PowerUpManager {
     private static PowerUpManager INSTANCE;

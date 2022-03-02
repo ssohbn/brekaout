@@ -1,8 +1,8 @@
-import components.BrickManager;
 import components.Ball;
 import components.Brick;
 import components.Player;
 import components.data.Collisions;
+import components.managey.BrickManager;
 import processing.core.PApplet;
 import java.util.ArrayList;
 import java.util.Random;

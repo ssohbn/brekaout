@@ -1,6 +1,7 @@
 import processing.core.PApplet;
 import processing.core.PImage;
 import components.*;
+import components.managey.BrickManager;
 
 public class Sketch extends PApplet {
 

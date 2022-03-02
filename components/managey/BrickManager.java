@@ -1,6 +1,8 @@
-package components;
+package components.managey;
 import java.util.ArrayList;
 import java.util.Random;
+
+import components.Brick;
 
 public class BrickManager {
    private static BrickManager INSTANCE;

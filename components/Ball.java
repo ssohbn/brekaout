@@ -5,9 +5,10 @@ import components.data.Collisions;
 import components.data.Direction;
 import components.data.Position;
 import components.data.Size;
+import components.data.interfaces.Colliding;
 import processing.core.PApplet;
 
-public class Ball {
+public class Ball implements Colliding {
 
     private static Ball INSTANCE;
     Direction dir = new Direction(1, -1);
