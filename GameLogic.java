@@ -5,8 +5,10 @@ import components.Player;
 import components.data.Collisions;
 import processing.core.PApplet;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class GameLogic {
+  static Random random = new Random();  
 
   public static void checkCollides(Ball ball, PApplet sketch) {
     if (Player.getInstance().hasClicked) {
@@ -27,12 +29,19 @@ public class GameLogic {
       if ( ball.withinBounds( brick.getBounds()) ) {
         brick.health -= 1;
         if (brick.health==0) {
+          brickDied(brick);
           bricks.remove(brick);
         }
         return true;
       }
     }
     return false;
+  }
+
+  static void brickDied(Brick brick) {
+    if (random.nextBoolean()) {
+    //  brick.POS.x
+    }
   }
 
   static boolean paddleCheck(Ball ball) {

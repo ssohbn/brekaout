@@ -3,11 +3,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class BrickManager {
-  private static BrickManager INSTANCE;
+   private static BrickManager INSTANCE;
   private ArrayList<Brick> bricks;
   private int level = 0;
 
-  public int getLevel() {
+ public int getLevel() {
     return this.level;
   }
   
@@ -45,4 +45,5 @@ public class BrickManager {
   public void add(Brick brick) {
     bricks.add(brick);
   }
+
 }
