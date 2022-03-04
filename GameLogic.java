@@ -10,10 +10,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class GameLogic {
+  private static final Player PLAYER = Player.getInstance();
   static Random random = new Random();  
 
   public static void checkCollides(Ball ball, PApplet sketch) {
-    if (Player.getInstance().hasClicked) {
+    if (PLAYER.hasClicked) {
 
       powerUpCheck();
       if (brickCheck(ball)||paddleCheck(ball)) {
@@ -53,8 +54,8 @@ public class GameLogic {
       // bricks do not get removed out of bounds as a feature
       // as the game goes on, u will leak memory 
       // unless the jvm gets aggressive
-      if ( PowerUpManager.getInstance().getPowerUps().get(i).withinBounds(Player.getInstance().getBounds()) ) {
-        Player.getInstance().setLives(Player.getInstance().getLives()+1);
+      if ( PowerUpManager.getInstance().getPowerUps().get(i).withinBounds(PLAYER.getBounds()) ) {
+        PLAYER.setLives(PLAYER.getLives()+1);
         PowerUpManager.getInstance()
           .getPowerUps()
           .remove(PowerUpManager
@@ -113,7 +114,7 @@ public class GameLogic {
   }
 
   static boolean paddleCheck(Ball ball) {
-    if ( ball.withinBounds(Player.getInstance().getBounds()) ) {
+    if ( ball.withinBounds(PLAYER.getBounds()) ) {
       return true;
     }
     return false;
@@ -126,7 +127,7 @@ public class GameLogic {
 
     if (Collisions.outOfBoundsY(ball.getBounds(), sketch)) {
       if (Collisions.belowScreenHeight(ball.getBounds(), sketch)) {
-        Player.getInstance().decrementLives();
+        PLAYER.decrementLives();
       }
       // flips no matter if lives are lost
       ball.flipY();

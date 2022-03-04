@@ -12,6 +12,8 @@ import components.managey.PowerUpManager;
 
 public class Sketch extends PApplet {
 
+  private static final BrickManager BRICK_MANAGER = BrickManager.getInstance();
+  private static final PowerUpManager POWER_UP_MANAGER = PowerUpManager.getInstance();
   private SoundFile wiiMusic;
   private Player player;
   private Ball ball;
@@ -51,13 +53,13 @@ public class Sketch extends PApplet {
       player.setPosition(new Position(350, 600)); // i should replace this as reset position 
       restart = true;
       player.setLives(3);
-      BrickManager.getInstance().resetLevel();
+      BRICK_MANAGER.resetLevel();
       gameOver();
-   }
+    }
   }
 
   void gamePlaying() {
-      for ( PowerUp powerUp : PowerUpManager.getInstance().getPowerUps()) {
+      for ( PowerUp powerUp : POWER_UP_MANAGER.getPowerUps()) {
         powerUp.update();
       }
       fill(0, 255, 0);
@@ -92,20 +94,19 @@ public class Sketch extends PApplet {
   }
 
   public void drawBricks() {
-    for ( Brick brick : BrickManager.getInstance().getBricks() ) {
+    for ( Brick brick : BRICK_MANAGER.getBricks() ) {
       brick.draw(this);
     }
   }
 
   public void drawPowerUps() {
-    for ( PowerUp powerUp : PowerUpManager.getInstance().getPowerUps() ) {
+    for ( PowerUp powerUp : POWER_UP_MANAGER.getPowerUps() ) {
       powerUp.draw(this);
     }
   }
 
   public void drawLivesAndScore() {
     text("lives: " + player.getLives(), 48, 240);
-    text("score: " + BrickManager.getInstance().getLevel(), 48, 340);
+    text("score: " + BRICK_MANAGER.getLevel(), 48, 340);
   }
-
 }
