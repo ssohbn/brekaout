@@ -44,6 +44,10 @@ public class BrickManager {
     return INSTANCE;
   }
 
+  public void resetLevel() {
+    this.level = 0;
+  }
+
   public void add(Brick brick) {
     bricks.add(brick);
   }

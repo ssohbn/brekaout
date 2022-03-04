@@ -1,6 +1,7 @@
 import processing.core.PApplet;
 import processing.core.PImage;
 import components.*;
+import components.data.Position;
 import components.managey.BrickManager;
 import components.managey.PowerUpManager;
 
@@ -25,12 +26,22 @@ public class Sketch extends PApplet {
     background(10);
     image(img, 0, 0, width, height);
 
-    if (player.getLives() != 0) {
-      if (!player.hasClicked) {
-        text("hit the mouse button to begin", 80, 300);  // Default depth, no z-value specified
-      }
+    if (!player.hasClicked) {
+      gameStart();
+    } else if (player.getLives() != 0) {
+      
+      gamePlaying();
 
+    } else {
+      player.hasClicked = !player.hasClicked;
+      player.setPosition(new Position(350, 600)); // i should replace this as reset position 
+      BrickManager.getInstance().resetLevel();
+      player.setLives(3);
+      gameOver();
+   }
+  }
 
+  void gamePlaying() {
       for ( PowerUp powerUp : PowerUpManager.getInstance().getPowerUps()) {
         powerUp.update();
       }
@@ -50,11 +61,15 @@ public class Sketch extends PApplet {
       if (player.hasClicked) {
         ball.draw(this);
         ball.update(this);
-      } 
+      }
+  }
 
-    } else {
-      text("lives are gone. time 2 restart ", 48, 240);
-   }
+  void gameStart() {
+    text("hit the mouse button to begin", 80, 300);  // Default depth, no z-value specified
+  }
+  
+  void gameOver() {
+    text("lives are gone. click to reset score and continue", 48, 240);
   }
 
   public void mouseClicked() {

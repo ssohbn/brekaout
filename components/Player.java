@@ -23,6 +23,10 @@ public class Player implements Collide, Draw {
   public void decrementLives() {
     this.lives-=1;
   }
+
+  public void setPosition(Position iposition) {
+    this.pos = iposition;
+  }
   
   public Bounds getBounds() {
     return new Bounds(this.pos.x, this.pos.x + this.size.width, this.pos.y, this.pos.y + this.size.height);
