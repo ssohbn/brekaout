@@ -16,6 +16,7 @@ public class Sketch extends PApplet {
   private Player player;
   private Ball ball;
   PImage img;
+  private boolean restart = false;
 
   public void settings() {
     size(700, 700);
@@ -36,16 +37,21 @@ public class Sketch extends PApplet {
     image(img, 0, 0, width, height);
 
     if (!player.hasClicked) {
-      gameStart();
+      if (restart) {
+        gameOver();
+      } else {
+        gameStart();
+      }
     } else if (player.getLives() != 0) {
       
       gamePlaying();
 
     } else {
-      player.hasClicked = !player.hasClicked;
+      player.hasClicked = false;
       player.setPosition(new Position(350, 600)); // i should replace this as reset position 
-      BrickManager.getInstance().resetLevel();
+      restart = true;
       player.setLives(3);
+      BrickManager.getInstance().resetLevel();
       gameOver();
    }
   }
