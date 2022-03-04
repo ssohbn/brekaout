@@ -1,6 +1,11 @@
 import processing.core.PApplet;
 import processing.core.PImage;
-import components.*;
+import processing.sound.SoundFile;
+
+import components.Ball;
+import components.Brick;
+import components.Player;
+import components.PowerUp;
 import components.data.Position;
 import components.managey.BrickManager;
 import components.managey.PowerUpManager;
@@ -20,6 +25,7 @@ public class Sketch extends PApplet {
     ball = Ball.getInstance();
     BrickManager.genLevel();
     img = loadImage("./ferris.png");
+    ( new SoundFile(this, "./WiiSports.mp3" )).play();
   }
 
   public void draw() {
