@@ -12,6 +12,7 @@ import components.managey.PowerUpManager;
 
 public class Sketch extends PApplet {
 
+  private SoundFile wiiMusic;
   private Player player;
   private Ball ball;
   PImage img;
@@ -25,10 +26,12 @@ public class Sketch extends PApplet {
     ball = Ball.getInstance();
     BrickManager.genLevel();
     img = loadImage("./ferris.png");
-    ( new SoundFile(this, "./WiiSports.mp3" )).play();
+    wiiMusic =  new SoundFile(this, "./WiiSports.mp3" );
+    wiiMusic.play();
   }
 
   public void draw() {
+    // wiiMusic.play();
     background(10);
     image(img, 0, 0, width, height);
 
